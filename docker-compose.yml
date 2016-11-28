@@ -1,0 +1,13 @@
+version: '2'
+services:
+  web:
+    build: .docker
+    volumes:
+      - ./src:/app/www
+      - .docker/etc/nginx/conf.d:/etc/nginx/conf.d
+      - .docker/var/log/nginx:/var/log/nginx
+    container_name: docker-web
+    image: mnking/docker-web
+    ports:
+      - "8080:80"
+    tty: true
